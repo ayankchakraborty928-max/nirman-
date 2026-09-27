@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NIRMAN | Unified Approval Portal</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- National Government Header -->
+    <header class="gov-header">
+        <div class="gov-left">
+            <div class="gov-emblem">🇮🇳</div>
+            <div class="gov-text">
+                <span class="gov-dept">Government of India</span>
+                <span class="gov-sub">Ministry of Commerce & Industry</span>
+            </div>
+        </div>
+        <div class="gov-right">
+            <span class="digital-india">Digital India</span>
+        </div>
+    </header>
+
+    <div class="app-container">
+        <!-- LEFT SIDE: BRANDING & VISION -->
+        <div class="vision-section">
+            <div class="mandala-pattern"></div>
+            <div class="vision-content">
+                <h1 class="brand-logo">NIRMAN</h1>
+                <p class="tagline">Empowering India's Industrial Future through Unified Governance</p>
+                <div class="feature-list">
+                    <div class="feature-item"><span class="icon">✓</span><p>Customized Approval Checklists</p></div>
+                    <div class="feature-item"><span class="icon">✓</span><p>Parallel Departmental Workflows</p></div>
+                    <div class="feature-item"><span class="icon">✓</span><p>Real-time Compliance Tracking</p></div>
+                    <div class="feature-item"><span class="icon">✓</span><p>Single-Window Dashboard</p></div>
+                </div>
+            </div>
+            <div class="vision-footer"><p>Sushasan | Transparency | Efficiency</p></div>
+        </div>
+
+        <!-- RIGHT SIDE: AUTHENTICATION -->
+        <div class="auth-section">
+            <!-- LOGIN PAGE -->
+            <div id="login-page" class="form-container">
+                <div class="form-header">
+                    <h2 class="text-navy">Welcome Back</h2>
+                    <p>Sign in to manage your industrial approvals</p>
+                </div>
+                <form class="auth-form" onsubmit="event.preventDefault(); handleLogin()">
+                    <div class="input-group">
+                        <label>Email Address</label>
+                        <input type="email" id="login-email" placeholder="name@company.com" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Password</label>
+                        <input type="password" id="login-pass" placeholder="••••••••" required>
+                    </div>
+                    <div class="form-options">
+                        <label class="checkbox-container"><input type="checkbox"> Remember me</label>
+                        <a href="#" class="forgot-link">Forgot Password?</a>
+                    </div>
+                    <button type="submit" class="primary-btn">Sign In</button>
+                </form>
+                <p class="form-footer">New to NIRMAN? <a href="#" onclick="showPage('signup-page')" class="accent-link">Create Organization Account</a></p>
+            </div>
+
+            <!-- SIGN UP PAGE -->
+            <div id="signup-page" class="form-container hidden">
+                <div class="form-header">
+                    <h2 class="text-navy">Register Entity</h2>
+                    <p>Start your journey towards streamlined approvals</p>
+                </div>
+                <form class="auth-form" onsubmit="event.preventDefault(); validateSignUp()">
+                    <div class="input-grid">
+                        <div class="input-group">
+                            <label>Full Name</label>
+                            <input type="text" id="signup-name" placeholder="John Doe" required>
+                        </div>
+                        <div class="input-group">
+                            <label>Entity Type</label>
+                            <select id="signup-entity" required>
+                                <option value="" disabled selected>Select Entity</option>
+                                <option value="proprietorship">Sole Proprietorship</option>
+                                <option value="partnership">Partnership</option>
+                                <option value="llp">LLP</option>
+                                <option value="company">Private Limited</option>
+                                <option value="public">Public Limited</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label>Industrial Sector</label>
+                        <input type="text" id="signup-sector" placeholder="e.g. Chemical, Textile" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Official Email</label>
+                        <input type="email" id="signup-email" placeholder="admin@company.com" required>
+                    </div>
+                    <div class="input-grid">
+                        <div class="input-group">
+                            <label>Password</label>
+                            <input type="password" id="signup-pass" placeholder="••••••••" required>
+                        </div>
+                        <div class="input-group">
+                            <label>Confirm Password</label>
+                            <input type="password" id="signup-confirm" placeholder="••••••••" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="primary-btn">Create Account</button>
+                </form>
+                <p class="form-footer">Already registered? <a href="#" onclick="showPage('login-page')" class="accent-link">Sign In here</a></p>
+            </div>
+        </div>
+    </div>
+
+    <button class="support-btn" onclick="handleAction('Help & Support')">
+        <svg class="btn-icon" viewBox="0,0,24,24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10" /><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" /><line x1="12" y1="17" x2="12.01" y2="17" />
+        </svg>
+        HELP & SUPPORT
+    </button>
+
+    <script>
+        function showPage(pageId) {
+            document.getElementById('login-page').classList.add('hidden');
+            document.getElementById('signup-page').classList.add('hidden');
+            document.getElementById(pageId).classList.remove('hidden');
+        }
+        function handleLogin() { alert("Authentication Successful. Redirecting to Dashboard..."); }
+        function validateSignUp() { alert("Organization registered successfully!"); }
+        function handleAction(action) { alert(action + " clicked!"); }
+    </script>
+</body>
+</html>
